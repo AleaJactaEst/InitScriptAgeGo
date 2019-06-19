@@ -52,7 +52,7 @@
                 node.className += ' ag-overflow';
                 continue;
             }
-            node.style.filter = 'blur(10px)';
+            node.style.filter = 'blur(10px) brightness(75%)';
         }
     };
 
@@ -70,12 +70,11 @@
     };
 
     var loadStylesheets = function () {
-        initialHtmlBlur('blur(10px)');
         var css = 'div.ag-overlay{position:absolute;top:0;left:0;width:100%;height:100vh;height: calc(var(--vh, 1vh) * 100);' +
-            'max-height:142vw;background-color:rgba(20, 20, 20, 0.6);z-index:99999999}' +
+            'max-height:142vw;z-index:99999999}' +
             'div.ag-overlay iframe{width:100%;height:100vh;height:calc(var(--vh, 1vh) * 100);border:none}' +
             '.ag-overflow{height:100vh;height:calc(var(--vh, 1vh) * 100);overflow:hidden}' +
-            '.ag-no-scroll{overflow:hidden}.ag-blurry{filter:blur(10px)}';
+            '.ag-no-scroll{overflow:hidden}.ag-blurry{filter:blur(10px) brightness(75%)}';
         var styleNode = document.createElement('style');
         styleNode.type = 'text/css';
         if (styleNode.styleSheet) {// IE
@@ -88,6 +87,7 @@
         if (0 < document.getElementsByTagName('head').length) {
             document.getElementsByTagName('head')[0].appendChild(styleNode);
         }
+    };
 
 
     };
